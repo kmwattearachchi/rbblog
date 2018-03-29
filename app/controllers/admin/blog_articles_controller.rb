@@ -1,6 +1,6 @@
 class Admin::BlogArticlesController < ApplicationController
   before_action :set_blog_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!,  only: [:edit]
 
   # GET /admin/blog_articles
   # GET /admin/blog_articles.json
