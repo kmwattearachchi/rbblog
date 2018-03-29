@@ -1,0 +1,2 @@
+module Admin::BlogArticlesHelper
+end
