@@ -19,7 +19,7 @@
         </div>
         <div class="card-footer text-muted">
           Posted on <%= Date.parse(blog_article.created_at.strftime("%_m/%d")).to_formatted_s(:long)  %> by
-          <a href="#">Start Bootstrap</a>
+          <a href="#">Start Bootstrap<%= blog_article.user.id %></a>
         </div>
       </div>
     <% end %>
