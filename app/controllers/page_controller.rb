@@ -6,7 +6,7 @@ class PageController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_blog_article
-    @blog_articles = BlogArticle.all
+    @blog_articles = BlogArticle.paginate(:page => params[:page], :per_page => 2)
   end
 
 end
