@@ -15,14 +15,14 @@
   </thead>
 
   <tbody>
-    <% @blog_article.each do |blog_article| %>
+    <% @blog_article.each do |article| %>
       <tr>
-        <td><%= image_tag blog_article.article_main_image.url(:thumb) %></td>
-        <td><%= blog_article.article_name %></td>
-        <td><%= blog_article.article_body %></td>
-        <td><%= link_to 'Show', [:admin,  blog_article],  class:'btn btn-info' %></td>
-        <td><%= link_to 'Edit', edit_admin_blog_article_path(blog_article),  class:'btn btn-success' %></td>
-        <td><%= link_to 'Destroy', [:admin, blog_article], method: :delete, data: { confirm: 'Are you sure?' },  class:'btn btn-danger' %></td>
+        <td><%= image_tag article.article_main_image.url(:thumb) %></td>
+        <td><%= article.article_name %></td>
+        <td><%= article.article_body %></td>
+        <td><%= link_to 'Show', [:admin,  article],  class:'btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_admin_blog_article_path(article),  class:'btn btn-success' %></td>
+        <td><%= link_to 'Delete', admin_blog_article_url(article),  class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -58,3 +58,4 @@ gem "paperclip", "~> 6.0.0" #image uploader
 gem 'bootstrap-sass', '~> 3.2.0' #Ruby Gem for Bootstrap
 gem 'autoprefixer-rails'  #Ruby Gem for Bootstrap
 gem 'devise' #login register gem
+gem 'jquery-rails'

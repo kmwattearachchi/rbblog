@@ -7,9 +7,7 @@
     <%= comment.body %>
   </div>
   <p>
-    <%= link_to 'Destroy Comment', [:admin, @blog_article, comment], method: :delete, data: { confirm: 'Are you sure?' }, class:"glyphicon glyphicon-trash" %>
-
-    <%= link_to raw('<i class="icon-trash icon-white">Destroy Comment</i>'),  [:admin, @blog_article, comment] , confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+    <%= link_to 'Delete', [:admin, @blog_article, comment], method: :delete, data: { confirm: 'Are you sure?' }, class:"glyphicon glyphicon-trash" %>
   </p>
 </div>
 <% end %>

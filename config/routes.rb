@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root :to => 'page#home'
 
-  devise_for :users
-  #devise_for :users, :controllers => { registrations: 'user' }
+  #devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   namespace :admin do
     resources :blog_articles do
       resources :comments
