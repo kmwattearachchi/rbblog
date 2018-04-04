@@ -1,31 +1,28 @@
-<table class="table table-condensed">
-
 <p id="notice"><%= notice %></p>
 
 <h1>Admin Blog Articles <%= link_to 'New Admin Blog Article', new_admin_blog_article_path,  class:'btn btn-primary' %></h1>
+<hr>
+<%= form_for_filterrific @filterrific do |f| %>
+  <div>
+    <div class="row">
+      <div class="col">
+        <div>
+          <%= f.text_field(:search_query, autofocus: true, placeholder: 'Article name') %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <%= link_to(
+            'Reset filters',
+            reset_filterrific_url,
+        ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%= render_filterrific_spinner %>
+<% end %>
 
-  <thead>
-    <tr>
-      <th>Article Pic</th>
-      <th>Article name</th>
-      <th>Article body</th>
-      <th>Actions</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blog_article.each do |article| %>
-      <tr>
-        <td><%= image_tag article.article_main_image.url(:thumb) %></td>
-        <td><%= article.article_name %></td>
-        <td><%= article.article_body %></td>
-        <td><%= link_to 'Show', [:admin,  article],  class:'btn btn-info' %></td>
-        <td><%= link_to 'Edit', edit_admin_blog_article_path(article),  class:'btn btn-success' %></td>
-        <td><%= link_to 'Delete', admin_blog_article_url(article),  class:'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render(
+      partial: '/admin/blog_articles/partials/list',
+      locals: { blog_article: @blog_article }
+) %>

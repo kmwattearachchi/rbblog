@@ -30,4 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  will_paginate:
+    line_item:
+      page_entries_info:
+        multi_page: "Displaying %{from} - %{to} of %{count} of %{model}"
+        multi_page_html: "Displaying <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{count}</b> of %{model}"

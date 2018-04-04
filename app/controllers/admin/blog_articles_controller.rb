@@ -5,7 +5,18 @@ class Admin::BlogArticlesController < ApplicationController
   # GET /admin/blog_articles
   # GET /admin/blog_articles.json
   def index
-    @blog_article = BlogArticle.all
+    #@blog_article = BlogArticle.all
+    @filterrific = initialize_filterrific(
+        BlogArticle,
+        params[:filterrific]
+    ) or return
+    @blog_article = @filterrific.find.page(params[:page]).per_page(10)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
 
