@@ -53,11 +53,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'dotenv-rails', require: 'dotenv/rails-now' #env gem
 gem "paperclip", "~> 6.0.0" #image uploader
-
 gem 'bootstrap-sass', '~> 3.2.0' #Ruby Gem for Bootstrap
 gem 'autoprefixer-rails'  #Ruby Gem for Bootstrap
 gem 'devise' #login register gem
 gem 'jquery-rails' #jquery
 gem 'will_paginate', '~> 3.1.0' #pagination
 gem 'filterrific' #search gem http://filterrific.clearcove.ca/pages/action_view_api.html
+gem 'ransack', '~> 1.8', '>= 1.8.2'

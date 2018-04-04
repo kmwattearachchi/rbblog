@@ -16,3 +16,4 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require filterrific/filterrific-jquery
+//= require jquery.easy-autocomplete

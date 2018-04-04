@@ -10,7 +10,7 @@ class Admin::BlogArticlesController < ApplicationController
         BlogArticle,
         params[:filterrific]
     ) or return
-    @blog_article = @filterrific.find.page(params[:page]).per_page(10)
+    @blog_article = @filterrific.find.page(params[:page]).per_page(ENV['ADMIN_PER_PAGE'].to_i)
 
     respond_to do |format|
       format.html
