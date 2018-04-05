@@ -1,0 +1,15 @@
+<div class="row row-offcanvas row-offcanvas-right">
+  <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+    <div class="list-group">
+      <a href="/admin/blog_articles" class="list-group-item <% if path_parts[1] == 'admin' && path_parts[2] == 'blog_articles'%>active<% end %>">Manage Articles</a>
+      <a href="/users/edit" class="list-group-item <% if path_parts[1] == 'users' && path_parts[2] == 'edit'%>active<% end %>">Edit My Profile</a>
+    </div>
+  </div>
+  <div class="col-12 col-md-9">
+    <div class="row">
+      <%= yield %>
+    </div><!--/row-->
+  </div><!--/span-->
+
+  <!--/span-->
+</div><!--/row-->

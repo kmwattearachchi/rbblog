@@ -1,5 +1,5 @@
 class Admin::BlogArticlesController < ApplicationController
-  before_action :set_blog_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog_article, only: [:edit, :update, :destroy]
   before_action :authenticate_user!,  only: [:edit]
 
   # GET /admin/blog_articles
@@ -19,12 +19,6 @@ class Admin::BlogArticlesController < ApplicationController
 
   end
 
-
-  # GET /admin/blog_articles/1
-  # GET /admin/blog_articles/1.json
-  def show
-  end
-
   # GET /admin/blog_articles/new
   def new
     @blog_article = BlogArticle.new
@@ -38,10 +32,10 @@ class Admin::BlogArticlesController < ApplicationController
   # POST /admin/blog_articles.json
   def create
     @blog_article = BlogArticle.new(blog_article_params)
-    @blog_article.user_id = current_admin_user.id
+    @blog_article.user_id = 5
     respond_to do |format|
       if @blog_article.save
-        format.html { redirect_to [:admin,  @blog_article], notice: 'Blog article was successfully created.' }
+        format.html { redirect_to admin_blog_articles_url, notice: 'Blog article was successfully created.' }
         #format.json { render :show, status: :created, location: @blog_article }
       else
         format.html { render :new }
@@ -55,7 +49,7 @@ class Admin::BlogArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @blog_article.update(blog_article_params)
-        format.html { redirect_to [:admin,  @blog_article], notice: 'Blog article was successfully updated.' }
+        format.html { redirect_to admin_blog_articles_url, notice: 'Blog article was successfully updated.' }
         #format.json { render :show, status: :ok, location: @blog_article }
       else
         format.html { render :edit }

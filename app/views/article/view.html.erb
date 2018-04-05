@@ -9,11 +9,11 @@
     <% end %>
 
     <!-- Title -->
-    <h1 class="mt-4"><%= @blog_article.article_name %></h1>
+    <h1 class="mt-4"><%= @article.article_name %></h1>
 
     <% if user_signed_in? %>
-      <%= link_to 'Edit', edit_admin_blog_article_path(@blog_article) %> |
-      <%= link_to 'Back', admin_blog_articles_path %>
+        <%= link_to 'Edit', edit_admin_blog_article_path(@article) %> |
+        <%= link_to 'Back', admin_blog_articles_path %>
     <% end %>
     <!-- Author -->
     <p class="lead">
@@ -24,30 +24,30 @@
     <hr>
 
     <!-- Date/Time -->
-    <p>Posted on January  <%= @blog_article.created_at %></p>
+    <p>Posted on January  <%= @article.created_at %></p>
 
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-fluid rounded" src="<%= @blog_article.article_main_image.url  %>" alt="" style="height:300px;width:900px">
+    <img class="img-fluid rounded" src="<%= @article.article_main_image.url  %>" alt="" style="height:300px;width:900px">
 
     <hr>
 
     <!-- Post Content -->
     <p class="lead">
-      <%= @blog_article.article_body %>
+      <%= @article.article_body %>
     </p>
 
     <hr>
 
     <!-- Comments Form -->
-    <%= render 'admin/comments/form' %>
+    <%= render 'article/comments/form' %>
 
     <!--Comments -->
-    <%= render @blog_article.comments %>
+    <%= render 'article/comments/comment' %>
   </div>
 
-  </div>
+</div>
 
 </div>
 <!-- /.row -->

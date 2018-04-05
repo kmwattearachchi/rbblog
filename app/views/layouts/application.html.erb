@@ -24,55 +24,21 @@
 
     <div class="container">
 
-    <% if !current_page?('/') && user_signed_in? %>
-          <div class="row row-offcanvas row-offcanvas-right">
-            <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-              <div class="list-group">
-                <a href="#" class="list-group-item active">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-                <a href="#" class="list-group-item">Link</a>
-              </div>
-            </div>
-            <div class="col-12 col-md-9">
-              <div class="row">
-                <%= yield %>
-              </div><!--/row-->
-            </div><!--/span-->
+      <%
+        path_parts = request.env['REQUEST_URI'].split('/')
+      %>
 
-            <!--/span-->
-          </div><!--/row-->
-
-    <% else %>
-      <%= yield %>
-    <% end %>
-
-
+      <% if !current_page?('/') && path_parts[1] == 'admin' || path_parts[1] == 'users' && user_signed_in? %>
+          <%= render(partial: '/layouts/partials/admin_side_bar', :locals => {:path_parts => path_parts}) %>
+      <% else %>
+        <%= yield %>
+      <% end %>
       <hr>
-
       <footer>
         <p>© Company 2017</p>
       </footer>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </br>
     <!-- Footer -->
     <%= render(partial: '/layouts/partials/footer') %>

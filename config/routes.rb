@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   get :autocomplete,  controller: :page
   get :search,  controller: :page
+
+  get 'article/view/:id', to: 'article#view', as: :article_view
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
