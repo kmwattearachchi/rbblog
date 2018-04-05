@@ -20,21 +20,65 @@
     <!-- Navigation -->
     <%= render(partial: '/layouts/partials/main_nav_menu') %>
 
-    <!-- Page Content -->
+    <br>
+
     <div class="container">
 
+    <% if !current_page?('/') && user_signed_in? %>
+          <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+              <div class="list-group">
+                <a href="#" class="list-group-item active">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-9">
+              <div class="row">
+                <%= yield %>
+              </div><!--/row-->
+            </div><!--/span-->
+
+            <!--/span-->
+          </div><!--/row-->
+
+    <% else %>
       <%= yield %>
+    <% end %>
 
-      <div class="row">
 
-      </div>
-      <!-- /.row -->
+      <hr>
+
+      <footer>
+        <p>© Company 2017</p>
+      </footer>
 
     </div>
-    <!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+
 
     </br>
     <!-- Footer -->
     <%= render(partial: '/layouts/partials/footer') %>
+
+   <!-- Bootstrap core JavaScript -->
+    <!--<script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
   </body>
 </html>
