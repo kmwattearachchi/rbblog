@@ -1,5 +1,4 @@
 <div class="row">
-
   <!-- Blog Entries Column -->
   <div class="col-md-8">
 
@@ -7,22 +6,8 @@
       <small></small>
     </h1>
 
-    <!-- Blog Post -->
-    <% @blog_articles.each do |blog_article| %>
-
-      <div class="card mb-4">
-        <img class="card-img-top" src="<%=blog_article.article_main_image.url%>" alt="Card image cap" style="width: 728px;height: 300px;">
-        <div class="card-body">
-          <h2 class="card-title"><%= blog_article.article_name %></h2>
-          <p class="card-text"><%= blog_article.article_body[0..250] %>&hellip;</p>
-          <a href="/admin/blog_articles/<%=blog_article.id%>" class="btn btn-primary">Read More &rarr;</a>
-        </div>
-        <div class="card-footer text-muted">
-          Posted on <%= Date.parse(blog_article.created_at.strftime("%_m/%d")).to_formatted_s(:long)  %> by
-          <a href="#">Start Bootstrap<%= blog_article.user.id %></a>
-        </div>
-      </div>
-    <% end %>
+    <!-- Blog Posts -->
+    <%= render(partial: '/page/partials/post_list') %>
 
     <!-- Pagination -->
     <ul class="pagination justify-content-center mb-4">
@@ -37,63 +22,14 @@
   <div class="col-md-4">
 
     <!-- Search Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Search</h5>
-      <div class="card-body">
-
-        <div class="input-group">
-          <%= form_with url:  search_path,  local:  true, method: :get, html: {class: "form-inline"} do |form| %>
-              <%= form.text_field :q, placeholder:  "Search for...",  data: { behaviour:  "autocomplete"},  class:  "form-control", id:"main_page_search" %>
-          <% end %>
-
-        </div>
-      </div>
-    </div>
+    <%= render(partial: '/page/partials/search') %>
 
     <!-- Categories Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Categories</h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">Web Design</a>
-              </li>
-              <li>
-                <a href="#">HTML</a>
-              </li>
-              <li>
-                <a href="#">Freebies</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">JavaScript</a>
-              </li>
-              <li>
-                <a href="#">CSS</a>
-              </li>
-              <li>
-                <a href="#">Tutorials</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render(partial: '/page/partials/categories') %>
 
     <!-- Side Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Side Widget</h5>
-      <div class="card-body">
-        You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-      </div>
-    </div>
+    <%= render(partial: '/page/partials/side_widget') %>
 
   </div>
 
 </div>
-<!-- /.row -->

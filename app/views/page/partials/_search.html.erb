@@ -1,0 +1,12 @@
+<div class="card my-4">
+  <h5 class="card-header">Search</h5>
+  <div class="card-body">
+
+    <div class="input-group">
+      <%= form_with url:  search_path,  local:  true, method: :get, html: {class: "form-inline"} do |form| %>
+          <%= form.text_field :q, placeholder:  "Search for...",  data: { behaviour:  "autocomplete"},  class:  "form-control", id:"main_page_search" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

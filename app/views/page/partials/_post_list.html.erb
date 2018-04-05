@@ -1,0 +1,15 @@
+<% @blog_articles.each do |blog_article| %>
+
+    <div class="card mb-4">
+      <img class="card-img-top" src="<%=blog_article.article_main_image.url%>" alt="Card image cap" style="width: 728px;height: 300px;">
+      <div class="card-body">
+        <h2 class="card-title"><%= blog_article.article_name %></h2>
+        <p class="card-text"><%= blog_article.article_body[0..250] %>&hellip;</p>
+        <a href="/admin/blog_articles/<%=blog_article.id%>" class="btn btn-primary">Read More &rarr;</a>
+      </div>
+      <div class="card-footer text-muted">
+        Posted on <%= Date.parse(blog_article.created_at.strftime("%_m/%d")).to_formatted_s(:long)  %> by
+        <a href="#">Start Bootstrap<%= blog_article.user.id %></a>
+      </div>
+    </div>
+<% end %>
