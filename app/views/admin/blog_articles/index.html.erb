@@ -2,6 +2,26 @@
 
 <h2>Admin Blog Articles <%= link_to 'New Admin Blog Article', new_admin_blog_article_path,  class:'btn btn-primary' %></h2>
 
+<%= form_for_filterrific @filterrific do |f| %>
+    <div>
+      <div class="row">
+        <div class="col">
+          <div>
+            <%= f.text_field(:search_query, autofocus: true, placeholder: 'Article name') %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= link_to(
+              'Reset filters',
+              reset_filterrific_url,
+          ) %>
+    </div>
+    <%# add an automated spinner to your form when the list is refreshed %>
+    <%= render_filterrific_spinner %>
+<% end %>
+
 <%= render(
       partial: '/admin/blog_articles/partials/list',
       locals: { blog_article: @blog_article }

@@ -34,7 +34,7 @@ class BlogArticle < ApplicationRecord
     # change the number of OR conditions.
     #num_or_conds = 2
     where(
-        "blog_articles.article_name LIKE '%?%' OR blog_articles.article_body LIKE '%?%'"
+        "blog_articles.article_name LIKE '%"+query+"%' OR blog_articles.article_body LIKE '%"+query+"%'"
     )
   }
   # define ActiveRecord scopes for
