@@ -17,3 +17,5 @@
 //= require bootstrap-sprockets
 //= require filterrific/filterrific-jquery
 //= require jquery.easy-autocomplete
+//= require jquery.raty
+//= require ratyrate

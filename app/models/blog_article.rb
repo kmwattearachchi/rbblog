@@ -5,6 +5,7 @@ class BlogArticle < ApplicationRecord
   has_attached_file :article_main_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :article_main_image, content_type: /\Aimage\/.*\z/
   belongs_to :user
+  ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 
   filterrific(
       default_filter_params: { },

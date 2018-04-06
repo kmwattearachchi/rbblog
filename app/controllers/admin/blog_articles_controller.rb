@@ -32,7 +32,7 @@ class Admin::BlogArticlesController < ApplicationController
   # POST /admin/blog_articles.json
   def create
     @blog_article = BlogArticle.new(blog_article_params)
-    @blog_article.user_id = 5
+    @blog_article.user_id = current_user.id
     respond_to do |format|
       if @blog_article.save
         format.html { redirect_to admin_blog_articles_url, notice: 'Blog article was successfully created.' }
