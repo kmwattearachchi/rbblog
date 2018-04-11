@@ -32,6 +32,14 @@
     <!-- Date/Time -->
     <p>Posted on January  <%= @article.created_at %></p>
 
+    <!-- Post categories -->
+    <% @post_categories.each do |category| %>
+        <% if category.id %>
+            <span class="label label-default"> <%= category.category_name%></span>
+
+        <% end %>
+    <% end %>
+
     <hr>
 
     <!-- Preview Image -->

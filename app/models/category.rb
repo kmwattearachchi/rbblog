@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+  has_many :post_categories
+  has_many :blog_articles, through: :post_categories
   validates :category_name, presence: {message: 'Please enter a category name'}
 
   filterrific(

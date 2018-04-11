@@ -9,5 +9,6 @@ class ArticleController < ApplicationController
   def set_blog_article
     @article = BlogArticle.find(params[:id])
     @comments = @article.comments
+    @post_categories = @article.categories
   end
 end

@@ -22,10 +22,15 @@
 
 </div>
 
-  <div class="form-group">
-    <%= form.label :article_main_image %>
-    <%= form.file_field :article_main_image,  class:'form-control' %>
-  </div>
+<div class="form-group">
+  <%= form.label :category_ids, "Categories" %><br />
+  <%= form.collection_check_boxes :category_ids, Category.order(:category_name), :id, :category_name, {}, {multiple: true} %>
+</div>
+
+<div class="form-group">
+  <%= form.label :article_main_image %>
+  <%= form.file_field :article_main_image,  class:'form-control' %>
+</div>
 
 <div class="form-group">
   <%= form.submit class:'btn btn-success' %>

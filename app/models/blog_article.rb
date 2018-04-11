@@ -1,5 +1,8 @@
 class BlogArticle < ApplicationRecord
   has_many :comments,  dependent: :destroy
+  has_many :post_categories,  dependent: :destroy
+  has_many :categories, through: :post_categories
+
   validates :article_name, presence: true
   validates :article_body, presence: true
   has_attached_file :article_main_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
