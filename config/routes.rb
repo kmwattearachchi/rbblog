@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :blog_articles do
       resources :comments
     end
+    resources :categories
   end
   namespace :admin do
     get 'post/index'

@@ -3,3 +3,23 @@ B
 app/models/user.rb,4/e/4ed0c03b53dbc8320da88e7887465514cd9e90a4
 @
 config/routes.rb,e/8/e801163eb9182955dca3eb9817d59af634f6665d
+\
+,app/views/article/comments/_comment.html.erb,9/8/98b9e7a9b740c435837730d4c8c2a79332c3cf26
+J
+app/models/blog_article.rb,9/c/9ce411c2d4ca2a8b06dd6a796d4618af5e5ab33a
+O
+app/views/article/view.html.erb,8/a/8a3d371cc6a24b44d16cd1b4fce774542e6877bc
+7
+Gemfile,d/e/de3150c01c3a946a6168173c4116741379fe3579
+b
+2app/assets/javascripts/jquery.easy-autocomplete.js,b/d/bd35087cfd0944d867790d6f929ba12481b55013
+a
+1app/controllers/admin/blog_articles_controller.rb,4/c/4c301bfff28e33862f38515c5b2350fa78d9b725
+R
+"app/controllers/page_controller.rb,5/c/5cb183d0bdf07f4876edb64405bad48fbb5dc4ff
+P
+ app/assets/javascripts/search.js,2/b/2b8e868a62b61b6f928a721b24072c0eea2babeb
+Y
+)app/views/page/autocomplete.json.jbuilder,4/b/4b45ecc7e88cf2ccffe08058bc182e9d5e18e4a2
+X
+(app/views/page/partials/_search.html.erb,9/0/9044817974c8cd16f37b557123d22db866f7959d

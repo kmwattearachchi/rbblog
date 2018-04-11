@@ -63,3 +63,6 @@ gem 'will_paginate', '~> 3.1.0' #pagination
 gem 'filterrific' #search gem http://filterrific.clearcove.ca/pages/action_view_api.html
 gem 'ransack', '~> 1.8', '>= 1.8.2' #search forms for your Ruby on Rails application https://github.com/activerecord-hackery/ransack
 gem 'ratyrate' #start rating gem https://www.sitepoint.com/ratyrate-add-rating-rails-app/
+gem 'cucumber'
+gem 'aruba'
+gem 'foodie'

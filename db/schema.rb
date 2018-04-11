@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180406070342) do
+ActiveRecord::Schema.define(version: 20180410105542) do
 
   create_table "average_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.bigint "rater_id"
@@ -33,7 +33,19 @@ ActiveRecord::Schema.define(version: 20180406070342) do
     t.integer "article_main_image_file_size"
     t.datetime "article_main_image_updated_at"
     t.bigint "user_id"
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.index ["cached_votes_down"], name: "index_blog_articles_on_cached_votes_down"
+    t.index ["cached_votes_score"], name: "index_blog_articles_on_cached_votes_score"
+    t.index ["cached_votes_up"], name: "index_blog_articles_on_cached_votes_up"
     t.index ["user_id"], name: "index_blog_articles_on_user_id"
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -42,7 +54,13 @@ ActiveRecord::Schema.define(version: 20180406070342) do
     t.bigint "blog_article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_votes_score", default: 0
     t.index ["blog_article_id"], name: "index_comments_on_blog_article_id"
+    t.index ["cached_votes_down"], name: "index_comments_on_cached_votes_down"
+    t.index ["cached_votes_score"], name: "index_comments_on_cached_votes_score"
+    t.index ["cached_votes_up"], name: "index_comments_on_cached_votes_up"
   end
 
   create_table "overall_averages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -95,6 +113,22 @@ ActiveRecord::Schema.define(version: 20180406070342) do
     t.string "lname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "votable_type"
+    t.bigint "votable_id"
+    t.string "voter_type"
+    t.bigint "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+    t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
   add_foreign_key "blog_articles", "users"
