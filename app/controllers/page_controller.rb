@@ -17,6 +17,7 @@ class PageController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_blog_article
     @blog_articles = BlogArticle.paginate(:page => params[:page], :per_page => ENV['ADMIN_PER_PAGE'].to_i)
+    @article_categories = Category.all()
   end
 
   def force_json

@@ -1,0 +1,16 @@
+<!-- Title -->
+<h1 class="mt-4">Categories</h1>
+
+<div class="row">
+  <% @article_categories.each do |category| %>
+  <div class="col-sm-2">
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title"><h4><%=category.category_name%></h4></div>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="/category/<%=category.id%>/articles" class="btn btn-primary">Explore</a>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

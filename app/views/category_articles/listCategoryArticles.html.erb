@@ -1,0 +1,16 @@
+<!-- Title -->
+<h1 class="mt-4"><%= @category.category_name %></h1>
+
+<div class="row">
+  <% @blog_articles.each do |article| %>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title"><h4><%=article.article_name%></h4></div>
+            <p class="card-text"><%=article.article_body[0..25]%>&hellip;</p>
+            <a href="/article/view/<%=article.id%>" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

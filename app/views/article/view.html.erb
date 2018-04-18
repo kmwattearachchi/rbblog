@@ -35,7 +35,7 @@
     <!-- Post categories -->
     <% @post_categories.each do |category| %>
         <% if category.id %>
-            <span class="label label-default"> <%= category.category_name%></span>
+            <a href="/category/<%=category.id%>/articles"><span class="label label-default"> <%= category.category_name%></span></a>
 
         <% end %>
     <% end %>
