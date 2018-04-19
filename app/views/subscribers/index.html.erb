@@ -1,0 +1,11 @@
+<% if cookies[:saved_subscriber] %>
+  Thanks for signing for the newsletter!
+<% else %>
+    <h1>Sign up for newsletter here!</h1>
+        <%= form_for @subscriber do |f| %>
+        <%= f.text_field :name, placeholder:  "Name" %>
+        <%= f.email_field :email, placeholder: "Email" %>
+        <%= f.select :source, ["Search Engine","Social Media","Word of Mouth","Other"]%>
+        <%= f.submit %>
+    <% end %>
+<% end %>

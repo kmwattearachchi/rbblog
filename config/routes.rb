@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   post '/rate' => 'rater#create', :as => 'rate'
   root :to => 'page#home'
 
@@ -21,4 +22,6 @@ Rails.application.routes.draw do
   get 'article/categories', to: 'category_articles#listCategories', as: :list_article_categories
   get 'category/:id/articles', to: 'category_articles#listCategoryArticles', as: :list_category_articles
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :subscribers
 end
