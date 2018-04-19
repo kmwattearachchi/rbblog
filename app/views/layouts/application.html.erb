@@ -29,7 +29,9 @@
     <br>
 
     <div class="container">
-
+      <% if notice %>
+          <p id="notice" class="alert alert-success"><%= notice %></p>
+      <% end %>
       <%
         path_parts = request.env['REQUEST_URI'].split('/')
       %>
