@@ -66,3 +66,4 @@ gem 'ratyrate' #start rating gem https://www.sitepoint.com/ratyrate-add-rating-r
 gem 'cucumber'
 gem 'aruba'
 gem 'foodie'
+gem 'mail'

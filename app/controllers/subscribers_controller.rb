@@ -2,6 +2,7 @@ class SubscribersController < ApplicationController
   include ApplicationHelper
 
   def index
+    logger.info("MainApp") { "Received connection from " }
     @subscriber = Subscriber.new
   end
 
@@ -9,8 +10,7 @@ class SubscribersController < ApplicationController
     @subscriber = Subscriber.new(subscriber_params)
     if @subscriber.save
       cookies[:saved_load] = true
-      flash[:success] = "Saved Successfully!"
-      redirect_to root_path
+      redirect_to_url(root_path, "Saved Successfully!","success")
     else
       redirect_to_url(subscribers_path, "Failed to save!","notice")
     end
